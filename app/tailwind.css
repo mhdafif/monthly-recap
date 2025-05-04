@@ -2,11 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+@layer base {
+  :root {
+    --radius: 0.5rem;
   }
+
+  body {
+    @apply m-0 p-0;
+  }
+
+  h1 {
+    @apply text-3xl;
+    @apply font-bold;
+  }
+  h2 {
+    @apply text-2xl;
+    @apply font-bold;
+  }
+  h3 {
+    @apply text-lg;
+    @apply font-bold;
+  }
+  h4 {
+    @apply text-base;
+    @apply font-bold;
+  }
+}
+
+/* Change autocomplete styles in WebKit */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  font-family: "Poppins", sans-serif;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.strikethrough {
+  position: relative;
+}
+.strikethrough-2h:before {
+  border-top: 2px solid red !important;
+}
+.strikethrough:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 1px solid red;
+}
+
+input {
+  outline: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Optional: Remove the increment and decrement arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input:autofill {
+  color: white;
+}
+
+input:-webkit-autofill {
+  color: white;
 }

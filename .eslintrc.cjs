@@ -71,6 +71,25 @@ module.exports = {
         "plugin:import/recommended",
         "plugin:import/typescript",
       ],
+      rules: {
+        camelcase: [
+          "error",
+          {
+            properties: "never",
+            ignoreDestructuring: true,
+            ignoreImports: true,
+          },
+        ],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "warn", // or "error" if you prefer to treat this as an error
+          {
+            varsIgnorePattern: "^_", // Ignore variables starting with _
+            argsIgnorePattern: "^_", // Ignore arguments starting with _
+          },
+        ],
+        // "unused-imports/no-unused-imports": "error",
+      },
     },
 
     // Node
